@@ -124,7 +124,9 @@ Permission::~Permission()
 //////////////////////////////////////////////////////////////////////////////
 bool Permission::isEnabled(int id)
 {
-	return(status.test(id) && auth.test(id));
+    //Enabled all for linux (I don't know the codes!)
+    //return true;
+	return(status.test(id) && isAuthorized(id));
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -139,7 +141,9 @@ bool Permission::isEnabled(int id)
 //////////////////////////////////////////////////////////////////////////////
 bool Permission::isAuthorized(int id)
 {
-	return(auth.test(id));
+    //enable all for linux (I don't know the codes)
+    return true;
+	//return(auth.test(id));
 }
 
 //////////////////////////////////////////////////////////////////////////////
