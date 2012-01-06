@@ -50,7 +50,7 @@ bool Options::SetPscpApp(wxString path_and_prog) {
 		return true;
 	}
 	//else
-		wxLogDebug(wxT("\"") + path_and_prog + wxT("\" is an invalid PSCP."));
+		wxLogDebug("\"" + path_and_prog + "\" is an invalid PSCP.");
 		return false;
 }
 
@@ -76,7 +76,7 @@ bool Options::SetMingwBasePath(wxString path)
 	}
 	else
 	{
-		wxLogDebug(wxT("\"") + path + wxT("\" is an invalid path."));
+		wxLogDebug("\"" + path + "\" is an invalid path.");
 		return false;
 	}
 }
