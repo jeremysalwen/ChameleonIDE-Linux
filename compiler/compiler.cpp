@@ -113,7 +113,7 @@ void Compiler::StartNextFile()
 
 	// Start the compile:
 	wxString cmd = wxEmptyString;
-	if(isRemote) {
+	if(true) { //Always use linux commands
 		cmd += wxT("g++ "); // compiler (assuming it is in the PATH)
 		cmd += wxT(" -g -c -fmessage-length=0 "); // include gdb info, and don't link
 		cmd += wxT(" -o ") + outFile.GetFullPath(wxPATH_UNIX) + wxT(" ");
