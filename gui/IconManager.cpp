@@ -130,13 +130,18 @@ void IconManager::CreateDisabledIcon(wxString iconInfo)
 {
 	int iconIndex = GetIconIndex(iconInfo);
 	wxIcon icon = m_images->GetIcon(iconIndex);
-	wxBitmap iconBitmap;
-	iconBitmap.CopyFromIcon(icon);
+    wxBitmap iconBitmap(icon.GetWidth(),icon.GetHeight());
+	if(!iconBitmap.IsOk()) {
+	    wxLogError("Error! bitmap is not okay\n");
+	}
 
 	wxMemoryDC dc;
 	wxPen pen(wxColour("navy"), 2);
-
 	dc.SelectObject(iconBitmap);
+	if(!dc.IsOk()) {
+	    wxLogError("Error! DC is not okay\n");
+	}
+	dc.DrawIcon(icon,0,0);
 	dc.SetPen(pen);
 
 	dc.DrawLine(0, 0, 15, 15);
