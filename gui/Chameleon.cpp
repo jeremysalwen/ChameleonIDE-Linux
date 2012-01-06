@@ -1491,7 +1491,7 @@ bool ChameleonWindow::GetFileContents(wxString fileToLoad, wxString &fileContent
 	}
 	else
 	{
-		wxFile file (fileToLoad);
+		wxFFile file (fileToLoad);
 
 		if( !file.IsOpened() )
 		{
@@ -1502,7 +1502,8 @@ bool ChameleonWindow::GetFileContents(wxString fileToLoad, wxString &fileContent
 
 		if( lng > 0 )
 		{
-			file.Read(wxStringBuffer(fileContents,lng), lng);
+		    wxLogDebug("File is %s\n",fn.GetFullPath());
+			file.ReadAll(&fileContents);
 		}
 	}
 
